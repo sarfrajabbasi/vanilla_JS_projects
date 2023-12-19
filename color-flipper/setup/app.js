@@ -41,11 +41,11 @@ main.appendChild(container);
  btn.addEventListener('click',()=>{
   // get random number b/w 0-3
 
-  // const randomNumber = Math.floor(Math.random()*colors.length);
-  const randomNumber2 = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-console.log(randomNumber2);
-  // document.body.style.backgroundColor = colors[randomNumber2];
-  document.body.style.backgroundColor = randomNumber2;
+  const randomNumber = Math.floor(Math.random()*colors.length);
+  // const randomNumber2 = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+// console.log(randomNumber2);
+  document.body.style.backgroundColor = colors[randomNumber];
+  // document.body.style.backgroundColor = randomNumber2;
   // color.textContent = colors[randomNumber2]
-  color.textContent = randomNumber2
+  color.textContent = colors[randomNumber]
  })
