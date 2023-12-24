@@ -81,3 +81,9 @@ nextBtn.addEventListener("click", () => {
   console.log();
   showPerson(currentItem);
 });
+
+randomBtn.addEventListener('click',()=>{
+  currentItem = Math.floor(Math.random()*(reviews.length));
+  showPerson()
+})
+
