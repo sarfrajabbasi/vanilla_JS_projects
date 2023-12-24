@@ -21,43 +21,63 @@ const reviews = [
     img: "https://www.course-api.com/images/people/person-4.jpeg",
     text: "Sriracha literally flexitarian irony, vape marfa unicorn. Glossier tattooed 8-bit, fixie waistcoat offal activated charcoal slow-carb marfa hell of pabst raclette post-ironic jianbing swag.",
   },
+
   {
-    id: 4,
-    name: "bill anderson",
-    job: "the boss",
-    img: "https://www.course-api.com/images/people/person-3.jpeg",
+    id: 5,
+    name: "bill the BoobShaker",
+    job: "begger",
+    img: "https://source.unsplash.com/random/?panhandlers",
+    text: "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic.",
+  },
+  {
+    id: 6,
+    name: "tuntun mousi",
+    job: "laddu baker",
+    img: "https://source.unsplash.com/random/?fat-lady",
     text: "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
   },
 ];
 
 // select items
 
-const img = document.getElementById("person-img");
+const image = document.getElementById("person-img");
 const author = document.getElementById("author");
 const job = document.getElementById("job");
 const info = document.getElementById("info");
 
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
+console.log(nextBtn);
 const randomBtn = document.querySelector(".random-btn");
 
 // set starting item
 let currentItem = 0;
 
 // load initial item
-
 window.addEventListener("DOMContentLoaded", () => {
-  const item = reviews[currentItem];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
+  showPerson(currentItem);
 });
 
 function showPerson(person) {
-  const item = reviews[person];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
+  const { img, name, job, text } = reviews[person];
+  image.src = img;
+  author.textContent = name;
+  job.textContent = job;
+  info.textContent = text;
 }
+
+prevBtn.addEventListener("click", () => {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
+});
+nextBtn.addEventListener("click", () => {
+  currentItem++;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+  console.log();
+  showPerson(currentItem);
+});
