@@ -18,6 +18,20 @@ const result = document.querySelector(".lorem-text");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  const value = amount.value;
-  console.log(typeof value);
+
+  const value = parseInt(amount.value);
+  // empty
+  // -1
+  // > 9
+  const randomText = Math.floor(Math.random() * text.length);
+  if (isNaN(value) || value <= 0 || value > 9) {
+    result.innerHTML = `<p class='result'>${text[randomText]}</p>`;
+  }else{
+    let tempText = text.slice(0,value) 
+    tempText = tempText.map(function(item){
+      return `<p class='result'>${item}</p>`
+    }).join('');
+    result.innerHTML = tempText;
+  }
+
 });
